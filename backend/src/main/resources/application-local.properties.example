@@ -1,0 +1,10 @@
+# ============================================
+# Local Development Configuration Template
+# ============================================
+# Copy this file to application-local.properties and fill in your actual values
+# application-local.properties is gitignored and will not be committed
+
+# OAuth2 Google Configuration
+# Get these from: https://console.cloud.google.com
+spring.security.oauth2.client.registration.google.client-id=YOUR_GOOGLE_CLIENT_ID_HERE
+spring.security.oauth2.client.registration.google.client-secret=YOUR_GOOGLE_CLIENT_SECRET_HERE

@@ -1,0 +1,37 @@
+# Backend
+backend/target/
+backend/.mvn/
+backend/mvnw
+backend/mvnw.cmd
+backend/HELP.md
+backend/*.iml
+backend/.idea/
+backend/.settings/
+backend/.classpath
+backend/.project
+
+# Local configuration files (contains secrets)
+backend/src/main/resources/application-local.properties
+**/application-local.properties
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.vscode/
+frontend/*.local
+
+# Database
+*.sql~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Logs
+*.log

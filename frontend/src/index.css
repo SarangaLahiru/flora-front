@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-charcoal-900 font-sans antialiased;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-charcoal-900 tracking-tight;
+  }
+
+  ::selection {
+    background-color: rgba(247, 63, 133, 0.15);
+    color: #f73f85;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #f73f85, #fbb1c3);
+    border-radius: 999px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-2.5 rounded-full font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 shadow-soft transition-all hover:translate-y-[-1px] hover:shadow-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-400 disabled:opacity-60 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-2.5 rounded-full font-semibold text-primary-600 bg-primary-50 border border-primary-100 hover:bg-white hover:shadow-soft transition-all;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-2.5 rounded-full font-semibold border-2 border-primary-500 text-primary-600 hover:bg-primary-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 transition-all;
+  }
+
+  .btn-soft {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg bg-charcoal-50 text-charcoal-700 hover:bg-white hover:shadow-md transition-all;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-2xl border border-transparent bg-white/70 backdrop-blur-sm shadow-inner focus:outline-none focus:border-primary-200 focus:ring-2 focus:ring-primary-100 transition-all placeholder:text-charcoal-400;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 px-4 py-1.5 rounded-full bg-primary-50 text-primary-700 text-sm font-medium;
+  }
+
+  .card {
+    @apply rounded-3xl bg-white shadow-md border border-gray-200;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-soft;
+  }
+
+  .badge-dot {
+    @apply relative pl-4 before:absolute before:left-1 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:bg-primary-500;
+  }
+}
