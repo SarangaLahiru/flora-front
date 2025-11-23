@@ -39,7 +39,7 @@ const AdminReports = () => {
     startDate: new Date(new Date().setDate(1)).toISOString().split('T')[0],
     endDate: new Date().toISOString().split('T')[0]
   });
-  const [deliveryDate, setDeliveryDate] = useState(new Date().toISOString().split('T')[0]);
+  const [deliveryDate, setDeliveryDate] = useState(''); // Empty by default to show all deliveries
 
   useEffect(() => {
     fetchDashboard();
@@ -465,6 +465,25 @@ const AdminReports = () => {
       {/* Deliveries Tab */}
       {activeTab === 'deliveries' && deliveryReport && (
         <div className="space-y-6">
+          {/* Date Filter */}
+          <div className="card p-4">
+            <div className="flex gap-4 items-center">
+              <label className="text-sm font-medium text-gray-700">Filter by Date:</label>
+              <input
+                type="date"
+                value={deliveryDate}
+                onChange={(e) => setDeliveryDate(e.target.value)}
+                className="px-4 py-2 border-2 border-charcoal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-primary-400 transition-all bg-white text-charcoal-900"
+              />
+              <button
+                onClick={() => setDeliveryDate('')}
+                className="px-6 py-2 bg-charcoal-100 text-charcoal-700 rounded-xl hover:bg-charcoal-200 font-medium transition-all"
+              >
+                All Deliveries
+              </button>
+            </div>
+          </div>
+
           {/* Delivery Summary Cards */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="card p-4">

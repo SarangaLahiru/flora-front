@@ -6,7 +6,7 @@ import Loading from '../../components/Loading';
 const AdminDeliveries = () => {
   const [deliveries, setDeliveries] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
+  const [selectedDate, setSelectedDate] = useState(''); // Empty by default to show all deliveries
   const [showAssignModal, setShowAssignModal] = useState(false);
   const [selectedDelivery, setSelectedDelivery] = useState(null);
   const [driverInfo, setDriverInfo] = useState({
@@ -21,7 +21,7 @@ const AdminDeliveries = () => {
 
   const fetchDeliveries = async () => {
     try {
-      const data = selectedDate 
+      const data = selectedDate
         ? await deliveryService.getDeliveriesByDate(selectedDate)
         : await deliveryService.getAllDeliveries();
       setDeliveries(data);
@@ -188,7 +188,7 @@ const AdminDeliveries = () => {
                 <input
                   type="text"
                   value={driverInfo.driverName}
-                  onChange={(e) => setDriverInfo({...driverInfo, driverName: e.target.value})}
+                  onChange={(e) => setDriverInfo({ ...driverInfo, driverName: e.target.value })}
                   className="w-full px-3 py-2 border rounded-lg"
                 />
               </div>
@@ -197,7 +197,7 @@ const AdminDeliveries = () => {
                 <input
                   type="tel"
                   value={driverInfo.driverPhone}
-                  onChange={(e) => setDriverInfo({...driverInfo, driverPhone: e.target.value})}
+                  onChange={(e) => setDriverInfo({ ...driverInfo, driverPhone: e.target.value })}
                   className="w-full px-3 py-2 border rounded-lg"
                 />
               </div>
@@ -206,7 +206,7 @@ const AdminDeliveries = () => {
                 <input
                   type="text"
                   value={driverInfo.vehicleNumber}
-                  onChange={(e) => setDriverInfo({...driverInfo, vehicleNumber: e.target.value})}
+                  onChange={(e) => setDriverInfo({ ...driverInfo, vehicleNumber: e.target.value })}
                   className="w-full px-3 py-2 border rounded-lg"
                 />
               </div>
@@ -214,11 +214,11 @@ const AdminDeliveries = () => {
                 <button onClick={handleAssignDriver} className="btn-primary flex-1">
                   Assign
                 </button>
-                <button 
+                <button
                   onClick={() => {
                     setShowAssignModal(false);
                     setDriverInfo({ driverName: '', driverPhone: '', vehicleNumber: '' });
-                  }} 
+                  }}
                   className="btn-secondary flex-1"
                 >
                   Cancel
